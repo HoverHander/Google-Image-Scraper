@@ -8,6 +8,7 @@ Created on Sun Jul 12 11:02:06 2020
 #Import libraries
 import os
 import concurrent.futures
+import json
 from GoogleImageScraper import GoogleImageScraper
 from patch import webdriver_executable
 
@@ -23,7 +24,19 @@ def worker_thread(search_key):
         max_resolution, 
         max_missed)
     image_urls = image_scraper.find_image_urls()
-    image_scraper.save_images(image_urls, keep_filenames)
+    
+    for index, url in enumerate(image_urls, start=1):
+        image_filename = f"img{index:05d}.jpg"
+        image_path_with_fn = os.path.join(image_path, image_filename)
+        image_scraper.save_image(url, image_path_with_fn)
+        json_data = {
+            "original_name": os.path.basename(url),
+            "url": url
+        }
+        json_filename = f"img{index:05d}.json"
+        json_path_with_fn = os.path.join(image_path, json_filename)
+        with open(json_path_with_fn, 'w') as json_file:
+            json.dump(json_data, json_file, indent=4)
 
     #Release resources
     del image_scraper
