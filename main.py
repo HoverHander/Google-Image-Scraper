@@ -35,13 +35,26 @@ if __name__ == "__main__":
     image_path = os.path.normpath(os.path.join(os.getcwd(), 'photos'))
 
     #Add new search key into array ["cat","t-shirt","apple","orange","pear","fish"]
-    search_keys = list(set(["cat","t-shirt"]))
+    search_keys = list(set(["Alabama landscape", "Alaska landscape", "Arizona landscape", "Arkansas landscape", "California landscape", "Colorado landscape", "Connecticut landscape",
+            "Delaware landscape", "Florida landscape", "Georgia landscape", "Hawaii landscape", "Idaho landscape", "Illinois landscape", "Indiana landscape", "Iowa landscape", "Kansas landscape", 
+            "Kentucky landscape", "Louisiana landscape", "Maine landscape", "Maryland landscape", "Massachusetts landscape", "Michigan landscape", "Minnesota landscape", 
+            "Mississippi landscape", "Missouri landscape", "Montana landscape", "Nebraska landscape", "Nevada landscape", "New Hampshire landscape", "New Jersey landscape", 
+            "New Mexico landscape", "New York landscape", "North Carolina landscape", "North Dakota landscape", "Ohio landscape", "Oklahoma landscape", "Oregon landscape", 
+            "Pennsylvania landscape", "Rhode Island landscape", "South Carolina landscape", "South Dakota landscape", "Tennessee landscape", "Texas landscape", "Utah landscape",
+            "Vermont landscape", "Virginia landscape", "Washington landscape", "West Virginia landscape", "Wisconsin landscape", "Wyoming landscape", "Alabama landscape", "Alaska urban",
+            "Arizona urban", "Arkansas urban", "California urban", "Colorado urban", "Connecticut urban",
+            "Delaware urban", "Florida urban", "Georgia urban", "Hawaii urban", "Idaho urban", "Illinois urban", "Indiana urban", "Iowa urban", "Kansas urban", 
+            "Kentucky urban", "Louisiana urban", "Maine urban", "Maryland urban", "Massachusetts urban", "Michigan urban", "Minnesota urban", 
+            "Mississippi urban", "Missouri urban", "Montana urban", "Nebraska urban", "Nevada urban", "New Hampshire urban", "New Jersey urban", 
+            "New Mexico urban", "New York urban", "North Carolina urban", "North Dakota urban", "Ohio urban", "Oklahoma urban", "Oregon urban", 
+            "Pennsylvania urban", "Rhode Island urban", "South Carolina urban", "South Dakota urban", "Tennessee urban", "Texas urban", "Utah urban",
+            "Vermont urban", "Virginia urban", "Washington urban", "West Virginia urban", "Wisconsin urban", "Wyoming urban"]))
 
     #Parameters
-    number_of_images = 5                # Desired number of images
+    number_of_images = 500                # Desired number of images
     headless = True                     # True = No Chrome GUI
     min_resolution = (0, 0)             # Minimum desired image resolution
-    max_resolution = (9999, 9999)       # Maximum desired image resolution
+    max_resolution = (1920, 1080)       # Maximum desired image resolution
     max_missed = 10                     # Max number of failed images before exit
     number_of_workers = 1               # Number of "workers" used
     keep_filenames = False              # Keep original URL image filenames
