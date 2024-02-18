@@ -25,6 +25,7 @@ def worker_thread(search_key):
         max_missed)
     image_urls = image_scraper.find_image_urls()
     
+    # save the images with a corresponding json file
     for index, url in enumerate(image_urls, start=1):
         image_filename = f"img{index:05d}.jpg"
         image_path_with_fn = os.path.join(image_path, image_filename)
