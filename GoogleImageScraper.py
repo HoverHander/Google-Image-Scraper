@@ -19,6 +19,7 @@ from urllib.parse import urlparse
 import os
 import requests
 import io
+import json
 from PIL import Image
 import re
 
@@ -192,6 +193,16 @@ class GoogleImageScraper():
                             print(
                                 f"[INFO] {self.search_key} \t {indx} \t Image saved at: {image_path}")
                             image_from_web.save(image_path)
+
+                            json_data = {
+                                'original_name': os.path.basename(image_url),
+                                'url': image_url
+                            }
+                        
+                            json_filename = os.path.splitext(filename)[0] + '.json'
+                            json_path = os.path.join(self.image_path, json_filename)
+                            with open(json_path, 'w') as json_file:
+                                json.dump(json_data, json_file, indent=4)
                         except OSError:
                             rgb_im = image_from_web.convert('RGB')
                             rgb_im.save(image_path)
